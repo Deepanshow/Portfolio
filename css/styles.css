@@ -303,7 +303,8 @@ sup {
 .project-image {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  min-height: 300px;
+  object-fit:cover;
 }
 
 .project-details {
@@ -11348,6 +11349,22 @@ p.lead {
 .dev-icons {
   font-size: 3rem;
 }
+
+.custom-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  border-radius: 50%; /* Make it circular */
+}
+
+.custom-icon img {
+  width: 80%; /* Adjust the size of the icon within the circle */
+  height: auto;
+  border-radius: 50%; /* Make sure the image stays circular */
+}
+
 
 section.resume-section {
   display: flex;
