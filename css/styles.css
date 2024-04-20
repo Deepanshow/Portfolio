@@ -34,7 +34,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #000001;
+  --bs-primary: #000020;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -112,6 +112,27 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  
+}
+
+/* Track */
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9f9f9f90; 
+  border-radius: 0.1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #79797981; 
+}
+
 
 hr {
   margin: 1rem 0;
@@ -294,6 +315,7 @@ sup {
 .project-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -304,7 +326,7 @@ sup {
   width: 100%;
   height: auto;
   min-height: 300px;
-  object-fit:cover;
+  object-fit: cover;
 }
 
 .project-details {
@@ -3029,8 +3051,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
   --bs-btn-color: #000;
-  --bs-btn-bg: #bd5d38;
-  --bs-btn-border-color: #bd5d38;
+  --bs-btn-bg: #000020;
+  color: whitesmoke;
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #c77556;
   --bs-btn-hover-border-color: #c46d4c;
@@ -11364,7 +11386,6 @@ p.lead {
   height: auto;
   border-radius: 50%; /* Make sure the image stays circular */
 }
-
 
 section.resume-section {
   display: flex;
