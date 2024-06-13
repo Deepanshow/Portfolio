@@ -1,14 +1,4 @@
-/*!
-* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
 window.addEventListener('DOMContentLoaded', event => {
-
     // Activate Bootstrap scrollspy on the main nav element
     const sideNav = document.body.querySelector('#sideNav');
     if (sideNav) {
@@ -16,7 +6,7 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#sideNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -31,4 +21,22 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Add event listener for project card click to flip and show details
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', (event) => {
+            // Stop propagation to avoid closing when clicking on the card
+            event.stopPropagation();
+            document.querySelectorAll('.project-card').forEach(c => c.classList.remove('flip'));
+            card.classList.add('flip');
+            document.querySelector('.container-fluid').classList.add('blur-background');
+        });
+    });
+
+    // Close the expanded project card when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.classList.remove('flip');
+        });
+        document.querySelector('.container-fluid').classList.remove('blur-background');
+    });
 });

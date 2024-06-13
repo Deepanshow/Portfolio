@@ -133,7 +133,101 @@ body {
   background: #79797981; 
 }
 
+/* Container styles */
+.project-card {
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  width: 300px; /* Set initial width */
+  height: 300px; /* Set initial height to make it square */
+  margin: 20px;
+  transition: transform 0.6s, width 0.6s, height 0.6s;
+}
 
+.project-card.flip {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(180deg);
+  width: 80%; /* Set expanded width */
+  height: 60%; /* Set expanded height */
+  z-index: 1000;
+}
+
+.project-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.project-card.flip .project-card-inner {
+  transform: rotateY(180deg);
+}
+
+.project-card .project-front,
+.project-card .project-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: height 0.6s;
+}
+
+.project-card .project-front {
+  background-color: #fff;
+  color: black;
+}
+
+.project-card .project-back {
+  background-color: #fff;
+  color: black;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align text to the top */
+  align-items: center;
+  padding: 20px;
+}
+
+.project-card.flip .project-front,
+.project-card.flip .project-back {
+  height: 100%;
+}
+
+.project-card .project-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s;
+}
+
+.project-card .hover-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.project-card:hover .project-image {
+  opacity: 0.3;
+}
+
+.project-card:hover .hover-text {
+  display: block;
+}
+
+/* Background blur effect */
+.blur-background {
+  filter: blur(5px);
+}
 hr {
   margin: 1rem 0;
   color: inherit;
