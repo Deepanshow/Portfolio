@@ -26,9 +26,15 @@ window.addEventListener('DOMContentLoaded', event => {
         card.addEventListener('click', (event) => {
             // Stop propagation to avoid closing when clicking on the card
             event.stopPropagation();
-            document.querySelectorAll('.project-card').forEach(c => c.classList.remove('flip'));
+            document.querySelectorAll('.project-card').forEach(c => {
+                c.classList.remove('flip');
+                if (c !== card) {
+                    c.classList.add('blur-background'); // Add blur to other cards
+                } else {
+                    c.classList.remove('blur-background'); // Remove blur from clicked card
+                }
+            });
             card.classList.add('flip');
-            document.querySelector('.container-fluid').classList.add('blur-background');
         });
     });
 
@@ -36,7 +42,7 @@ window.addEventListener('DOMContentLoaded', event => {
     document.addEventListener('click', () => {
         document.querySelectorAll('.project-card').forEach(card => {
             card.classList.remove('flip');
+            card.classList.remove('blur-background'); // Remove blur when no card is flipped
         });
-        document.querySelector('.container-fluid').classList.remove('blur-background');
     });
 });
