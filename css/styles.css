@@ -215,10 +215,10 @@ body {
   display: block;
 }
 
-.blur-background {
+/*.blur-background {
   filter: blur(5px);
 }
-
+*/
 hr {
   margin: 1rem 0;
   color: inherit;
