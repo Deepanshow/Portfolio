@@ -45,4 +45,31 @@ window.addEventListener('DOMContentLoaded', event => {
             card.classList.remove('blur-background'); // Remove blur when no card is flipped
         });
     });
+
+    // Add event listener for filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            button.classList.add('active');
+
+            const category = button.getAttribute('data-category');
+
+            projectCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
 });

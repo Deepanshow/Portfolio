@@ -194,12 +194,9 @@ body {
 
 @media (max-width: 768px) {
   .project-card.flip {
-    position:static; /* Use fixed positioning to center it in the viewport */
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%, -50%);
-    width: 150%; /* Use viewport width for responsive sizing */
-    height: 150%; /* Allow height to adjust automatically */
+    position:relative; /* Use fixed positioning to center it in the viewport */
+    width: 300px; /* Use viewport width for responsive sizing */
+    height: 400px; /* Allow height to adjust automatically */
     max-height: 50vh; /* Ensure it doesn't exceed the viewport height */
     z-index: 1000;
     align-items: center;
